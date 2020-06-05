@@ -1,0 +1,11 @@
+﻿
+.nav-active span {
+    font-weight: bolder;
+    color: white;
+}
+
+.icon-active {
+    color: #fff;
+    text-shadow: 0.50px 0.50px #ccc;
+    font-size: 1.5em;
+}

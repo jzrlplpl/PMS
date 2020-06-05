@@ -1,0 +1,100 @@
+﻿@model IEnumerable<PreventiveMaintenanceSystem.Models.Entities.PanelCheck>
+
+@{
+    ViewBag.Title = "PanelIndex";
+}
+@section Styles{
+    <style>
+        #table-inspect {
+            font-size: 14px;
+        }
+    </style>
+    }
+
+<div class="card shadow">
+    <div class="card-header">
+        <h5 class="font-weight-bold float-left">Panel Inspection Record</h5>
+        <a href="/fdas/panelcheck" class="btn btn-primary float-right"><i class="fa fa-search"></i> Inspect a Panel</a>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped table-bordered table-responsive-lg">
+            <thead class="thead-dark" id="table-inspect">
+                <tr>
+                    <th scope="col">Options</th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Number)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Tower)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.SounderOutput)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.BatteryConnector)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.BatteryVoltage)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.InspectionDate)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Inspector)
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">
+                            <a href="/fdas/editpanelcheck/@item.ID"><i class="fa fa-edit"></i></a>
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Number)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Tower)
+                        </td>
+                        <td>
+                            @if (item.SounderOutput == true)
+                            {
+                                <p>On</p>
+                            }
+                            else
+                            {
+                                <p>Off</p>
+                            }
+
+                        </td>
+                        <td>
+                            @if (item.SounderOutput == true)
+                            {
+                                <p>Good</p>
+                            }
+                            else
+                            {
+                                <p>No Good</p>
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BatteryVoltage)
+                        </td>
+                        <td>
+                            @{
+                                var inspectdate = item.InspectionDate.ToString("MM/dd/yyyy");
+                                <p>@inspectdate</p>
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Inspector)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

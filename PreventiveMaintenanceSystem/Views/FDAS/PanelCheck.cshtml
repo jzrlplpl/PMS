@@ -1,0 +1,129 @@
+﻿@model PreventiveMaintenanceSystem.Models.Entities.PanelCheck
+
+@{
+    ViewBag.Title = "PanelCheck";
+    List<SelectListItem> panelList = new List<SelectListItem>();
+    for (int i = 1; i < 6; i++)
+    {
+        panelList.Add(new SelectListItem
+        {
+            Text = i.ToString(),
+            Value = i.ToString()
+        });
+    }
+    List<SelectListItem> SoundOutput = new List<SelectListItem>();
+    SoundOutput.Add(new SelectListItem
+    {
+        Text = "On",
+        Value = "true"
+    });
+    SoundOutput.Add(new SelectListItem
+    {
+        Text = "Off",
+        Value = "false"
+    });
+
+    List<SelectListItem> BatteryStatus = new List<SelectListItem>();
+    BatteryStatus.Add(new SelectListItem
+    {
+        Text = "Good",
+        Value = "true"
+    });
+    BatteryStatus.Add(new SelectListItem
+    {
+        Text = "No Good",
+        Value = "false"
+    });
+
+    List<SelectListItem> TowerList = new List<SelectListItem>();
+    TowerList.Add(new SelectListItem
+    {
+        Text = "One West",
+        Value = "One West"
+    });
+    TowerList.Add(new SelectListItem
+    {
+        Text = "Two West",
+        Value = "Two West"
+    });
+}
+
+
+@using (Html.BeginForm("PanelCheck", "FDAS", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="card shadow">
+        <div class="card-header">
+            <h5 class="font-weight-bold">Inspect Panel</h5>
+        </div>
+        <div class="card-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Number, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    @Html.DropDownListFor(model => model.Number, panelList, "Select Panel #", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Number, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Tower, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    @*@Html.EditorFor(model => model.Tower, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.DropDownListFor(model => model.Tower, TowerList, "Select Tower", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Tower, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SounderOutput, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-12">
+                    @Html.DropDownListFor(model => model.SounderOutput, SoundOutput, "Select Sounder Output", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.SounderOutput, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BatteryConnector, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    @Html.DropDownListFor(model => model.BatteryConnector, BatteryStatus, "Select Battery Condition", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.BatteryConnector, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BatteryVoltage, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.BatteryVoltage, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.BatteryVoltage, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group" hidden>
+                @Html.LabelFor(model => model.InspectionDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.InspectionDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.InspectionDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Inspector, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.Inspector, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Inspector, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-12">
+                    <button type="submit" class="btn btn-primary float-right ml-2"><i class="fa fa-save"></i> Save</button>
+                    <a href="/fdas/panelindex" class="btn btn-secondary float-right"><i class="fa fa-list"></i> Back to List</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+
+

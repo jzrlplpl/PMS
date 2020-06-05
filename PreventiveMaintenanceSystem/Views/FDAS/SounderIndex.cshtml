@@ -1,0 +1,119 @@
+﻿@model IEnumerable<PreventiveMaintenanceSystem.Models.Entities.SounderCheck>
+
+@{
+    ViewBag.Title = "SounderIndex";
+}
+
+<div class="card shadow">
+    <div class="card-header">
+        <h5 class="font-weight-bold float-left">Sounder Inspection Record</h5>
+        <a href="/fdas/soundercheck" class="btn btn-primary float-right"><i class="fa fa-search"></i> Inspect a Sounder</a>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped table-bordered table-responsive-lg">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Options</th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Level)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Tower)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MCP1)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MCP2)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Sounder1)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Sounder2)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Remarks)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.InspectionDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Inspector)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <a href="/fdas/soundercheck"><i class="fa fa-edit"></i></a>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Level)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Tower)
+                        </td>
+                        <td>
+                            @if (item.MCP1 == true)
+                            {
+                                <p>Good</p>
+                            }
+                            else
+                            {
+                                <p>No Good</p>
+                            }
+                        </td>
+                        <td>
+                            @if (item.MCP2 == true)
+                            {
+                                <p>Good</p>
+                            }
+                            else
+                            {
+                                <p>No Good</p>
+                            }
+                        </td>
+                        <td>
+                            @if (item.Sounder1 == true)
+                            {
+                                <p>Good</p>
+                            }
+                            else
+                            {
+                                <p>No Good</p>
+                            }
+                        </td>
+                        <td>
+                            @if (item.Sounder2 == true)
+                            {
+                                <p>Good</p>
+                            }
+                            else
+                            {
+                                <p>No Good</p>
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Remarks)
+                        </td>
+                        <td>
+                            @{
+                                var inspectdate = item.InspectionDate.ToString("MM/dd/yyyy");
+                                <p>@inspectdate</p>
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Inspector)
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+</div>

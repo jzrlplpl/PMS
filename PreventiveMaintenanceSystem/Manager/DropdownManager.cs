@@ -25,6 +25,7 @@ namespace PreventiveMaintenanceSystem.Manager
         {
             List<SelectListItem> result = new List<SelectListItem>();
             Dictionary<string, string> x = new Dictionary<string, string>();
+            x.Add("", "-Select Status-");
             x.Add("Good", "Good");
             x.Add("No Good", "No Good");
             foreach (var item in x)

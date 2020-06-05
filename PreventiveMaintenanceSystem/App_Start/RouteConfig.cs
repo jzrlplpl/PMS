@@ -16,7 +16,7 @@ namespace PreventiveMaintenanceSystem
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Record", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "FDAS", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
