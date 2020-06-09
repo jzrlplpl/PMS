@@ -158,12 +158,15 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\checkerview.css" />
     <Content Include="Content\dashboard.css" />
     <Content Include="Content\dashboard.min.css" />
+    <Content Include="Content\dataTables.bootstrap.min.css" />
     <Content Include="Content\event-style.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\highlight.css" />
+    <Content Include="Content\Image\kmc.png" />
     <Content Include="Content\kmc-savills-portal-styles.css" />
     <Content Include="Content\kmc-savills-portal-styles.min.css" />
     <Content Include="DBScripts\dbo.usp_Floor_GetAll.StoredProcedure.sql" />
@@ -214,6 +217,7 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\dataTables.bootstrap.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -223,6 +227,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\src\index.js" />
     <Content Include="Scripts\src\methods\defaults.js" />
     <Content Include="Scripts\src\methods\destroy.js" />
@@ -324,6 +329,7 @@
     <Content Include="Views\FDAS\PanelIndex.cshtml" />
     <Content Include="Views\FDAS\SounderCheck.cshtml" />
     <Content Include="Views\FDAS\SounderIndex.cshtml" />
+    <Content Include="Views\FDAS\OneWest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

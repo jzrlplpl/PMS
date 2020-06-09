@@ -1,5 +1,6 @@
 ﻿using PreventiveMaintenanceSystem.Managers;
 using PreventiveMaintenanceSystem.Models.Entities;
+using PreventiveMaintenanceSystem.Models.Parameters;
 using PreventiveMaintenanceSystem.Repository;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,15 @@ namespace PreventiveMaintenanceSystem.Manager
                 cacheManager.cache.Set("usp_SounderCheck_GetAll", record, cacheManager.cacheExpiry);
             }
             return record;
+        }
+        public Result Insert(SounderCheck parameter)
+        {
+            Result result = sounderCheckRepository.Insert(parameter);
+            if (result.IsSuccess)
+            {
+                cacheManager.ClearCache("usp_SounderCheck_GetAll");
+            }
+            return result;
         }
     }
 }

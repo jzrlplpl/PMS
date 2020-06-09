@@ -3,31 +3,49 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - PMS</title>
-    @Scripts.Render("~/bundles/modernizr")
-    @RenderSection("Styles", required: false)
-    <link href="~/Content/dashboard.css" rel="stylesheet" />
-    <link href="~/Content/event-style.css" rel="stylesheet" />
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @*@Styles.Render("~/Content/css")*@
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/dataTables.bootstrap.min.css" rel="stylesheet" />
+    @RenderSection("styles", required: false)
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        #home-button {
+            font-size: 15px;
+            color: white;
+        }
+
+        .navbar-inverse {
+            background-color: midnightblue;
+        }
+    </style>
 </head>
-<body id="page-top">
-    <div class="navbar navbar-default navbar-fixed-top">
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                @Html.ActionLink("Preventive Maintenance System", "Index", "FDAS", new { area = "" }, new { @class = "navbar-brand" })
+                <img src="~/Content/Image/kmc.png" width="100" height="50" /> <a href="/" style="text-decoration: none;color: white; font-size: 30px; margin: 10px;">|PMS|</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/fdas" id="home-button">Home</a></li>
+                </ul>
             </div>
         </div>
     </div>
     <div class="container body-content">
-        <br />
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Preventive Maintenance System</p>
+            <p>&copy; @DateTime.Now.Year - PMS</p>
         </footer>
     </div>
+
     @Scripts.Render("~/bundles/jquery")
-    @*@Scripts.Render("~/bundles/bootstrap")*@
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/dataTables.bootstrap.min.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

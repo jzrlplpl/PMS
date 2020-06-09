@@ -1,5 +1,6 @@
 ﻿using PreventiveMaintenanceSystem.DataAccess;
 using PreventiveMaintenanceSystem.Models.Entities;
+using PreventiveMaintenanceSystem.Models.Parameters;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -36,6 +37,16 @@ namespace PreventiveMaintenanceSystem.Repository
                     }
                 }
             }
+            return result;
+        }
+        public Result Insert(SounderCheck parameter)
+        {
+            var result = dbConnection.Insert("usp_SounderCheck_Insert", parameter);
+            return result;
+        }
+        public Result Update(SounderCheck parameter)
+        {
+            var result = dbConnection.Update("usp_SounderCheck_Update", parameter);
             return result;
         }
     }
