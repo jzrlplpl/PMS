@@ -9,87 +9,87 @@
     <div id="options">
         <a href="/fdas/panelcheck" class="btn btn-primary float-right"><i class="fa fa-search"></i> Inspect a Panel</a>
     </div>
-    <table class="table table-bordered table-striped table-responsive-lg" id="table-panel-inspect">
-        <thead id="table-header">
-            <tr>
-                <th scope="col" colspan="2">Options</th>
-                <th scope="col">
-                    @Html.DisplayNameFor(model => model.Number)
-                </th>
-                <th scope="col">
-                    @Html.DisplayNameFor(model => model.Tower)
-                </th>
-                <th scope="col">
-                    @Html.DisplayNameFor(model => model.SounderOutput)
-                </th>
-                <th scope="col">
-                    @Html.DisplayNameFor(model => model.BatteryConnector)
-                </th>
-                <th scope="col">
-                    @Html.DisplayNameFor(model => model.BatteryVoltage)
-                </th>
-                <th scope="col">
-                    @Html.DisplayNameFor(model => model.InspectionDate)
-                </th>
-                <th scope="col">
-                    @Html.DisplayNameFor(model => model.Inspector)
-                </th>
-            </tr>
-        </thead>
-
-        <tbody>
-            @foreach (var item in Model)
-            {
+    <div class="container table-responsive">
+        <table class="table table-striped " id="table-panel-inspect">
+            <thead id="table-header">
                 <tr>
-                    <th scope="row">
-                        <a href="/fdas/editpanelcheck/@item.ID"><i class="fa fa-edit"></i></a>
+                    <th scope="col">Options</th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Number)
                     </th>
-                    <th scope="row">
-                        <a href="#"><i class="fa fa-trash"></i></a>
+                    <th >
+                        @Html.DisplayNameFor(model => model.Tower)
                     </th>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Number)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Tower)
-                    </td>
-                    <td>
-                        @if (item.SounderOutput == true)
-                        {
-                            <p>On</p>
-                        }
-                        else
-                        {
-                            <p>Off</p>
-                        }
-
-                    </td>
-                    <td>
-                        @if (item.BatteryConnector == true)
-                        {
-                            <p>Good</p>
-                        }
-                        else
-                        {
-                            <p>No Good</p>
-                        }
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.BatteryVoltage)
-                    </td>
-                    <td>
-                        @{
-                            var inspectdate = item.InspectionDate.ToString("MM/dd/yyyy");
-                            <p>@inspectdate</p>
-                        }
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Inspector)
-                    </td>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.SounderOutput)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.BatteryConnector)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.BatteryVoltage)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.InspectionDate)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Inspector)
+                    </th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">
+                            <a href="/fdas/editpanelcheck/@item.ID"><i class="fa fa-edit"></i></a>
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Number)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Tower)
+                        </td>
+                        <td>
+                            @if (item.SounderOutput == true)
+                            {
+                                <p>On</p>
+                            }
+                            else
+                            {
+                                <p>Off</p>
+                            }
+
+                        </td>
+                        <td>
+                            @if (item.BatteryConnector == true)
+                            {
+                                <p>Good</p>
+                            }
+                            else
+                            {
+                                <p>No Good</p>
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BatteryVoltage)
+                        </td>
+                        <td>
+                            @{
+                                var inspectdate = item.InspectionDate.ToString("MM/dd/yyyy");
+                                <p>@inspectdate</p>
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Inspector)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
 </div>
 @section Scripts
 {
@@ -97,5 +97,6 @@
         $(document).ready(function () {
             $('#table-panel-inspect').DataTable();
         });
+
     </script>
 }

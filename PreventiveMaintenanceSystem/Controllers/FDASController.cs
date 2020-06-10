@@ -1,7 +1,10 @@
-﻿using PreventiveMaintenanceSystem.Manager;
+﻿using Newtonsoft.Json.Linq;
+using PreventiveMaintenanceSystem.Manager;
 using PreventiveMaintenanceSystem.Models.Entities;
+using PreventiveMaintenanceSystem.Models.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,13 +15,13 @@ namespace PreventiveMaintenanceSystem.Controllers
     {
         private PanelCheckManager panelCheckManager = new PanelCheckManager();
         private SounderCheckManager sounderCheckManager = new SounderCheckManager();
+        private InspectorManager inspectorManager = new InspectorManager();
         // GET: FDAS
         public ActionResult Index()
         {
-            Floors();
             return View();
         }
-        public void Floors(int bldg = 0)
+        public void Floors(int bldg)
         {
             List<string> floors = new List<string>();
             floors.Add("Basement");
@@ -60,11 +63,19 @@ namespace PreventiveMaintenanceSystem.Controllers
             Floors(0);
             return View();
         }
+        public ActionResult TwoWest()
+        {
+            Floors(1);
+            return View();
+        }
+        // Sounder Insert
         [HttpPost]
-        public ActionResult OneWest(List<SounderCheck> sounderChecks)
+        public ActionResult SounderCheck(List<SounderCheck> sounderChecks)
         {
             foreach (var item in sounderChecks)
             {
+                var date = DateTime.Now;
+                item.InspectionDate = date;
                 sounderCheckManager.Insert(item);
             }
             return Redirect("/fdas/sounderindex");
@@ -74,7 +85,6 @@ namespace PreventiveMaintenanceSystem.Controllers
         {
             return View(panelCheckManager.PanelChecksGetAll());
         }
-
         [HttpGet]
         public ActionResult PanelCheck()
         {
@@ -102,6 +112,14 @@ namespace PreventiveMaintenanceSystem.Controllers
         {
             panelCheckManager.Update(panelCheck);
             return Redirect("/fdas/panelindex");
+        }
+
+        [HttpPost]
+        public DataTable AddToDataTable()
+        {
+            DataTable dt = new DataTable();
+            dt.Clear();
+            return dt;
         }
     }
 }

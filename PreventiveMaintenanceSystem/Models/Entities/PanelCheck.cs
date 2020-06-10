@@ -20,6 +20,7 @@ namespace PreventiveMaintenanceSystem.Models.Entities
         public decimal BatteryVoltage { get; set; }
         [Display(Name = "Inspection Date")]
         public DateTime InspectionDate { get; set; }
+        [Required]
         public string Inspector { get; set; }
     }
 }

@@ -136,7 +136,12 @@ C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\Au
 C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\Newtonsoft.Json.dll
+C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\System.Net.Http.Formatting.dll
+C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\System.Web.Cors.dll
 C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\System.Web.Helpers.dll
+C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\System.Web.Http.Cors.dll
+C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\System.Web.Http.dll
+C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\System.Web.Http.WebHost.dll
 C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\System.Web.Mvc.dll
 C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\System.Web.Optimization.dll
 C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\System.Web.Razor.dll
@@ -146,6 +151,10 @@ C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\Sy
 C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\WebGrease.dll
 C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\AutoMapper.pdb
 C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\AutoMapper.xml
+C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\System.Net.Http.Formatting.xml
+C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\System.Web.Http.xml
+C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\System.Web.Http.Cors.xml
+C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\System.Web.Http.WebHost.xml
 C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\System.Web.Helpers.xml
 C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\System.Web.Mvc.xml
 C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\System.Web.Optimization.xml
@@ -156,7 +165,7 @@ C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\Sy
 C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\Newtonsoft.Json.xml
 C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\Antlr3.Runtime.pdb
 C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\obj\Debug\PreventiveMaintenanceSystem.csprojAssemblyReference.cache
 C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\obj\Debug\PreventiveMaintenanceSystem.csproj.CopyComplete
 C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\obj\Debug\PreventiveMaintenanceSystem.dll
 C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\obj\Debug\PreventiveMaintenanceSystem.pdb
+C:\Users\jezreel.pilapil\Documents\GitHub\PMS\PreventiveMaintenanceSystem\obj\Debug\PreventiveMaintenanceSystem.csprojAssemblyReference.cache

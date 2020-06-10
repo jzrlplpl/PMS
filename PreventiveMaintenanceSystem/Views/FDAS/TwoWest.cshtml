@@ -1,0 +1,75 @@
+﻿@model PreventiveMaintenanceSystem.Models.Entities.SounderCheck
+
+@{
+    ViewBag.Title = "TwoWest";
+    List<SelectListItem> Status = new List<SelectListItem>();
+    Status.Add(new SelectListItem
+    {
+        Text = "Good",
+        Value = "true"
+    });
+    Status.Add(new SelectListItem
+    {
+        Text = "No Good",
+        Value = "false"
+    });
+
+}
+<div class="container" id="sounder-add">
+    @using (Html.BeginForm("SounderCheck", "FDAS", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        <hr />
+        <h4 style="float: left;">Inspect Two West</h4>
+        <a href="/fdas/sounderindex" class="btn btn-warning" id="back"><i class="fa fa-list"></i> Back to List</a>
+        <table class="table" id="sounder-checks">
+            @foreach (var item in ViewBag.FloorList)
+            {
+                <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>MCP1</th>
+                        <th>MCP2</th>
+                        <th>Sounder1</th>
+                        <th>Sounder2</th>
+                        <th>Inspector</th>
+                        <th>Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td hidden>
+                            <input type="text" class="form-control" name="Tower" id="Tower" value="One West">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" name="Level" id="Level" value="@item" readonly>
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(model => model.MCP1, Status, "Select Status", new { @class = "form-control" })
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(model => model.MCP2, Status, "Select Status", new { @class = "form-control" })
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(model => model.Sounder1, Status, "Select Status", new { @class = "form-control" })
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(model => model.Sounder2, Status, "Select Status", new { @class = "form-control" })
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.Inspector, new { htmlAttributes = new { @class = "form-control" } })
+                        </td>
+                        <td>
+                            @Html.TextAreaFor(model => model.Remarks, new { @class = "form-control" })
+                        </td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+        <div class="form-group">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary" id="save"><i class="fa fa-save"></i> Save</button>
+                <a href="/fdas/sounderindex" class="btn btn-warning"><i class="fa fa-list"></i> Back to List</a>
+            </div>
+        </div>
+    }
+</div>
