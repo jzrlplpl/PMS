@@ -9,8 +9,8 @@
     <h3 class="font-weight-bold float-left">Sounder Inspection Record</h3>
     <div id="options">
         <p class="float-left mr-2 mt-2">Select Tower To Inspect: </p>
-        <a href="/fdas/onewest" class="btn btn-primary float-left mr-2"><i class="fa fa-search"></i> One West</a>
-        <a href="/fdas/twowest" class="btn btn-primary float-left"><i class="fa fa-search"></i> Two West</a>
+        <a href="/fdas/soundercheck/1" class="btn btn-primary float-left mr-2"><i class="fa fa-search"></i> One West</a>
+        <a href="/fdas/soundercheck/2" class="btn btn-primary float-left"><i class="fa fa-search"></i> Two West</a>
     </div>
 
     <table class="table table-bordered table-striped table-responsive-lg" id="table-sounder-inspect">
@@ -51,7 +51,7 @@
             {
                 <tr>
                     <td>
-                        <a href="/fdas/soundercheck"><i class="fa fa-edit"></i></a>
+                        <a href="/fdas/editsoundercheck/@item.ID"><i class="fa fa-edit"></i></a>
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Level)
@@ -121,7 +121,10 @@
 {
     <script>
         $(document).ready(function () {
-            $('#table-sounder-inspect').DataTable();
+            $('#table-sounder-inspect').DataTable({
+                "aLengthMenu": [[15, 50, 100, -1], [15, 50, 100, "All"]],
+                "iDisplayLength": 15
+            });
         });
     </script>
 }

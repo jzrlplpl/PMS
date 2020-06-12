@@ -155,7 +155,6 @@
     <Compile Include="Manager\BaseManager.cs" />
     <Compile Include="Manager\CacheManager.cs" />
     <Compile Include="Manager\DropdownManager.cs" />
-    <Compile Include="Manager\FloorManager.cs" />
     <Compile Include="Manager\InspectorManager.cs" />
     <Compile Include="Manager\PanelCheckManager.cs" />
     <Compile Include="Manager\SounderCheckManager.cs" />
@@ -166,7 +165,6 @@
     <Compile Include="Models\Parameters\Result.cs" />
     <Compile Include="Models\ViewModels\PanelCheckViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\FloorRepository.cs" />
     <Compile Include="Repository\InspectorRepository.cs" />
     <Compile Include="Repository\PanelCheckRepository.cs" />
     <Compile Include="Repository\SounderCheckRepository.cs" />
@@ -174,9 +172,6 @@
   <ItemGroup>
     <Content Include="Content\bootstrap-tagsinput.css" />
     <Content Include="Content\layout_pms.css" />
-    <Content Include="Scripts\add-record.js" />
-    <Content Include="Content\bootstrap-datetimepicker.css" />
-    <Content Include="Content\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -192,15 +187,9 @@
     <Content Include="Content\Image\kmc.png" />
     <Content Include="Content\kmc-savills-portal-styles.css" />
     <Content Include="Content\kmc-savills-portal-styles.min.css" />
-    <Content Include="DBScripts\dbo.usp_Floor_GetAll.StoredProcedure.sql" />
-    <Content Include="DBScripts\dbo.usp_Floor_Insert.StoredProcedure.sql" />
-    <Content Include="DBScripts\dbo.usp_Floor_Update.StoredProcedure.sql" />
     <Content Include="DBScripts\dbo.usp_PanelCheck_GetAll.StoredProcedure.sql" />
     <Content Include="DBScripts\dbo.usp_PanelCheck_Insert.StoredProcedure.sql" />
     <Content Include="DBScripts\dbo.usp_PanelCheck_Update.StoredProcedure.sql" />
-    <Content Include="DBScripts\dbo.usp_Record_GetAll.StoredProcedure.sql" />
-    <Content Include="DBScripts\dbo.usp_Record_Insert.StoredProcedure.sql" />
-    <Content Include="DBScripts\dbo.usp_Record_Update.StoredProcedure.sql" />
     <Content Include="DBScripts\dbo.usp_SounderCheck_GetAll.StoredProcedure.sql" />
     <Content Include="DBScripts\dbo.usp_SounderCheck_Insert.StoredProcedure.sql" />
     <Content Include="favicon.ico" />
@@ -251,6 +240,7 @@
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\posting-checks.js" />
     <Content Include="Scripts\src\index.js" />
     <Content Include="Scripts\src\methods\defaults.js" />
     <Content Include="Scripts\src\methods\destroy.js" />
@@ -351,8 +341,7 @@
     <Content Include="Views\FDAS\PanelIndex.cshtml" />
     <Content Include="Views\FDAS\SounderCheck.cshtml" />
     <Content Include="Views\FDAS\SounderIndex.cshtml" />
-    <Content Include="Views\FDAS\OneWest.cshtml" />
-    <Content Include="Views\FDAS\TwoWest.cshtml" />
+    <Content Include="Views\FDAS\EditSounderCheck.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

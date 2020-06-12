@@ -12,7 +12,7 @@ namespace PreventiveMaintenanceSystem.Manager
     public class PanelCheckManager : BaseManager
     {
         private PanelCheckRepository panelCheckRepository = new PanelCheckRepository();
-
+        private SounderCheckRepository sounderCheckRepository = new SounderCheckRepository();
         public List<PanelCheck> PanelChecksGetAll()
         {
             List<PanelCheck> record = cacheManager.cache["usp_PanelCheck_GetAll"] as List<PanelCheck>;
@@ -45,5 +45,7 @@ namespace PreventiveMaintenanceSystem.Manager
             }
             return result;
         }
+
+     
     }
 }

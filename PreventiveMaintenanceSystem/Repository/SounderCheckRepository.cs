@@ -49,5 +49,11 @@ namespace PreventiveMaintenanceSystem.Repository
             var result = dbConnection.Update("usp_SounderCheck_Update", parameter);
             return result;
         }
+
+        public Result InsertBulkSounderCheck(List<SounderCheck> parameter)
+        {
+            var result = dbConnection.InsertBulkSounderCheck(parameter);
+            return result;
+        }
     }
 }

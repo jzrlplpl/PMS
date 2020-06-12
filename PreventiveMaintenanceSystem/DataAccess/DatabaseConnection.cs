@@ -1,4 +1,5 @@
-﻿using PreventiveMaintenanceSystem.Models.Parameters;
+﻿using PreventiveMaintenanceSystem.Models.Entities;
+using PreventiveMaintenanceSystem.Models.Parameters;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -212,5 +213,50 @@ namespace PreventiveMaintenanceSystem.DataAccess
             //put a breakpoint here and check datatable
             return dataTable;
         }
+
+        // BULK INSERT
+        public Result InsertBulkSounderCheck(List<SounderCheck> sounderChecks)
+        {
+            var result = new Result();
+            try
+            {
+
+                var table = new DataTable();
+                // read the table structure from the database
+                using (var adapter = new SqlDataAdapter($"SELECT TOP 0 * FROM SounderCheck", this.connectionString))
+                {
+                    adapter.Fill(table);
+                };
+                foreach (var sounderCheck in sounderChecks)
+                {
+                    var row = table.NewRow();
+                    row["Level"] = sounderCheck.Level;
+                    row["Tower"] = sounderCheck.Tower;
+                    row["MCP1"] = sounderCheck.MCP1;
+                    row["MCP2"] = sounderCheck.MCP2;
+                    row["Sounder1"] = sounderCheck.Sounder1;
+                    row["Sounder2"] = sounderCheck.Sounder2;
+                    row["Remarks"] = sounderCheck.Remarks;
+                    row["InspectionDate"] = DateTime.Now;
+                    row["Inspector"] = sounderCheck.Inspector;
+                    table.Rows.Add(row);
+                }
+
+                using (var bulk = new SqlBulkCopy(this.connectionString))
+                {
+                    bulk.DestinationTableName = "SounderCheck";
+                    bulk.WriteToServer(table);
+                }
+                result.IsSuccess = true;
+            }
+            catch (Exception ex)
+            {
+                result.IsSuccess = false;
+                result.Exception = ex;
+                result.ExceptionMessage = ex.ToString();
+            }
+            return result;
+        }
+
     }
 }

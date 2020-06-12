@@ -12,6 +12,7 @@ namespace PreventiveMaintenanceSystem.Controllers.API
 {
     public class SounderCheckAPIController : ApiController
     {
+        private SounderCheckManager sounderCheckManager = new SounderCheckManager();
         // GET: SounderCheckAPI
         [Route("~/api/soundercheck")]
         [HttpGet]

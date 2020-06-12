@@ -22,6 +22,11 @@ namespace PreventiveMaintenanceSystem.Manager
             }
             return record;
         }
+
+        public SounderCheck SounderCheckGetByID(int id)
+        {
+            return SounderChecksGetAll().FirstOrDefault(e => e.ID.Equals(id));
+        }
         public Result Insert(SounderCheck parameter)
         {
             Result result = sounderCheckRepository.Insert(parameter);
@@ -29,6 +34,21 @@ namespace PreventiveMaintenanceSystem.Manager
             {
                 cacheManager.ClearCache("usp_SounderCheck_GetAll");
             }
+            return result;
+        }
+
+        public Result Update(SounderCheck parameter)
+        {
+            Result result = sounderCheckRepository.Update(parameter);
+            if (result.IsSuccess)
+            {
+                cacheManager.ClearCache("usp_SounderCheck_GetAll");
+            }
+            return result;
+        }
+        public Result InsertBulk(List<SounderCheck> parameter)
+        {
+            Result result = sounderCheckRepository.InsertBulkSounderCheck(parameter);
             return result;
         }
     }

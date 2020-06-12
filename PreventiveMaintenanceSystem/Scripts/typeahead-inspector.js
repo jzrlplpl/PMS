@@ -1,12 +1,12 @@
 ﻿var inspectors = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+    datumTokenizer: Bloodhound.tokenizers.obj.whitespace("Name"),
     queryTokenizer: Bloodhound.tokenizers.whitespace,
     prefetch: {
-        url: '/api/inspectors',
+        url: '/api/inspectors'
     }
 });
-
-inspectors.initialize();
+inspectors.clearPrefetchCache();
+inspectors.initialize(true);
 
 $('#Inspector').tagsinput({
     itemValue: 'Name',
@@ -14,10 +14,10 @@ $('#Inspector').tagsinput({
         minlength: 1,
         highlight: true,
     }, {
-        minlength: 1,
         name: 'inspectors',
         displayKey: 'Name',
         valueKey: 'Name',
+        cache: false,
         source: inspectors.ttAdapter()
         }],
     freeInput: true
