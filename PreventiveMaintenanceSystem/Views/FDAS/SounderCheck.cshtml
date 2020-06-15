@@ -1,6 +1,6 @@
 ﻿@model List<PreventiveMaintenanceSystem.Models.Entities.SounderCheck>
 @{
-    ViewBag.Title = "Inspect One West";
+    ViewBag.Title = "Inspect " + ViewBag.TowerName;
     List<SelectListItem> Status = new List<SelectListItem>();
     Status.Add(new SelectListItem
     {

@@ -3,13 +3,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - PMS</title>
     @*@Styles.Render("~/Content/css")*@
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/dataTables.bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-tagsinput.css" rel="stylesheet" />
     <link href="~/Content/layout_pms.css" rel="stylesheet" />
+    <link href="~/Content/checkerview.css" rel="stylesheet" />
     @RenderSection("styles", required: false)
     @Scripts.Render("~/bundles/modernizr")
     <style>
@@ -32,6 +33,8 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="/fdas" id="home-button">Home</a></li>
+                    <li><a href="/inspector" id="home-button">Inspectors</a></li>
+                    <li><a href="/tower" id="home-button">Towers</a></li>
                 </ul>
             </div>
         </div>

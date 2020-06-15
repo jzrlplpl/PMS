@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Panel Check";
+    var context = ViewBag.Context as PreventiveMaintenanceSystem.Models.ViewModels.PanelCheckViewModel;
     List<SelectListItem> panelList = new List<SelectListItem>();
     for (int i = 1; i < 6; i++)
     {
@@ -34,23 +35,11 @@
         Text = "No Good",
         Value = "false"
     });
-
-    List<SelectListItem> TowerList = new List<SelectListItem>();
-    TowerList.Add(new SelectListItem
-    {
-        Text = "One West",
-        Value = "One West"
-    });
-    TowerList.Add(new SelectListItem
-    {
-        Text = "Two West",
-        Value = "Two West"
-    });
 }
 
 @using (Html.BeginForm("PanelCheck", "FDAS", FormMethod.Post))
 {
-    <div class="container" id="panel-add">
+    <div class="container" id="margin-index">
         @Html.AntiForgeryToken()
         <h3 class="font-weight-bold">Inspect Panel</h3>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -66,7 +55,8 @@
             @Html.LabelFor(model => model.Tower, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-12">
                 @*@Html.EditorFor(model => model.Tower, new { htmlAttributes = new { @class = "form-control" } })*@
-                @Html.DropDownListFor(model => model.Tower, TowerList, "Select Tower", new { @class = "form-control" })
+                @*@Html.DropDownListFor(model => model.Tower, Model.ListOfTowers, new { @class = "form-control" })*@
+                @Html.DropDownListFor(model => model.Tower, context.ListOfTowers, "Select Tower", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Tower, "", new { @class = "text-danger" })
             </div>
         </div>

@@ -10,20 +10,20 @@ using System.Web;
 
 namespace PreventiveMaintenanceSystem.Repository
 {
-    public class InspectorRepository : BaseRepository
+    public class TowerRepository : BaseRepository
     {
-        public List<Inspector> GetAllInspectors()
+        public List<Tower> GetAllTowers()
         {
-            List<Inspector> result = new List<Inspector>();
+            List<Tower> result = new List<Tower>();
 
-            var reader = dbConnection.Select("usp_Inspector_GetAll", null, CommandType.StoredProcedure);
+            var reader = dbConnection.Select("usp_Tower_GetAll", null, CommandType.StoredProcedure);
             if (reader != null)
             {
                 if (reader.Rows.Count > 0)
                 {
                     foreach (DataRow row in reader.Rows)
                     {
-                        Inspector item = new Inspector();
+                        Tower item = new Tower();
                         item.ID = transform.ToInt(row["ID"]);
                         item.Name = row["Name"].ToString();
                         item.IsDeleted = transform.ToBool(row["IsDeleted"]);
@@ -34,14 +34,14 @@ namespace PreventiveMaintenanceSystem.Repository
             return result;
         }
 
-        public Result Insert(Inspector parameter)
+        public Result Insert(Tower parameter)
         {
-            var result = dbConnection.Insert("usp_Inspector_Insert", parameter);
+            var result = dbConnection.Insert("usp_Tower_Insert", parameter);
             return result;
         }
-        public Result Update(Inspector parameter)
+        public Result Update(Tower parameter)
         {
-            var result = dbConnection.Update("usp_Inspector_Update", parameter);
+            var result = dbConnection.Update("usp_Tower_Update", parameter);
             return result;
         }
     }

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace PreventiveMaintenanceSystem.Models
 {
-    public class Inspector
+    public class Tower
     {
         public int ID { get; set; }
         public string Name { get; set; }

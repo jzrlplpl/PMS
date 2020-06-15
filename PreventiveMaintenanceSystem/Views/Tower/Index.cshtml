@@ -1,0 +1,49 @@
+﻿@model IEnumerable<PreventiveMaintenanceSystem.Models.Tower>
+
+@{
+    ViewBag.Title = "Towers";
+}
+<div class="container" id="margin-index">
+    <hr />
+    <h3 class="font-weight-bold">Towers</h3>
+    <div id="options">
+        <a href="/tower/add" class="btn btn-primary float-right"><i class="fa fa-plus"></i> Add Tower</a>
+    </div>
+    <div class="container table-responsive">
+        <table class="table" id="tbl-inspectors">
+            <thead>
+                <tr>
+                    <th>
+                        Options
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <a href="/tower/edit/@item.ID"><i class="fa fa-edit"></i></a>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#tbl-inspectors').DataTable();
+        });
+    </script>
+}

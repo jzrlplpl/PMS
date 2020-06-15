@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using PreventiveMaintenanceSystem.Manager;
+using PreventiveMaintenanceSystem.Models;
 using PreventiveMaintenanceSystem.Models.Entities;
 using PreventiveMaintenanceSystem.Models.ViewModels;
 using System;
@@ -16,10 +17,17 @@ namespace PreventiveMaintenanceSystem.Controllers
         private PanelCheckManager panelCheckManager = new PanelCheckManager();
         private SounderCheckManager sounderCheckManager = new SounderCheckManager();
         private InspectorManager inspectorManager = new InspectorManager();
+        private DropdownManager ddManager = new DropdownManager();
         // GET: FDAS
         public ActionResult Index()
         {
             return View();
+        }
+        public void ReadyContextForView()
+        {
+            PanelCheckViewModel panelCheckViewModel = new PanelCheckViewModel();
+            panelCheckViewModel.ListOfTowers = ddManager.TowerList();
+            ViewBag.Context = panelCheckViewModel;
         }
         public void Floors(int bldg)
         {
@@ -51,23 +59,18 @@ namespace PreventiveMaintenanceSystem.Controllers
         {
             return View(sounderCheckManager.SounderChecksGetAll());
         }
+        // Sounder Insert for One West Tower 
         //[HttpGet]
-        //public ActionResult SounderCheck()
+        //public ActionResult OneWest()
         //{
+        //    Floors(0);
         //    return View();
         //}
-        // Sounder Insert for One West Tower 
-        [HttpGet]
-        public ActionResult OneWest()
-        {
-            Floors(0);
-            return View();
-        }
-        public ActionResult TwoWest()
-        {
-            Floors(1);
-            return View();
-        }
+        //public ActionResult TwoWest()
+        //{
+        //    Floors(1);
+        //    return View();
+        //}
         [HttpGet]
         public ActionResult SounderCheck(int id)
         {
@@ -108,6 +111,7 @@ namespace PreventiveMaintenanceSystem.Controllers
         [HttpGet]
         public ActionResult PanelCheck()
         {
+            ReadyContextForView();
             return View();
         }
 
@@ -124,6 +128,7 @@ namespace PreventiveMaintenanceSystem.Controllers
         {
             var model = panelCheckManager.PanelCheckGetByID(id);
             model.InspectionDate = DateTime.Now;
+            ReadyContextForView();
             return View(model);
         }
 
@@ -180,5 +185,6 @@ namespace PreventiveMaintenanceSystem.Controllers
 
             return View(sounderChecks);
         }
+
     }
 }
